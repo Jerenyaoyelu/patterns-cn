@@ -4,19 +4,17 @@
 <br/>
 <br/>
 
-# 关于
-
-## patterns.dev
+## 关于 patterns.dev
 
 本仓库所有文章转译自 https://www.patterns.dev/ 。该网站是有来自 google 的工程师 Lydia Hallie 和 Addy Osmani 共同创建，以现代视角呈现 js 设计、渲染和性能模式等相关主题，旨在帮助大家提升 web 应用的架构能力。
 
-## 本站
+## 关于本站
 
 本站是 https://www.patterns.dev/ 文章的中文翻译，旨在通过翻译进行学习，同时也可以帮助中文社区中的同志共同进步。
 
 文章内容还在持续翻译中，欢迎大家提交 pr，跟我一起贡献自己的力量。
 
-# 目录
+## 目录
 
 1. 设计模式 Design Patterns
 
