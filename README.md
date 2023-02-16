@@ -52,7 +52,7 @@
 - 流式服务端渲染 [Streaming Server-Side Rendering](https://www.patterns.dev/posts/ssr/)
 - React 服务端组件 [React Server Components](https://www.patterns.dev/posts/react-server-components/)
 - 选择性水合 [Selective Hydration](https://www.patterns.dev/posts/react-selective-hydration/)
-- 孤岛架构 [Islands Architecture](https://www.patterns.dev/posts/islands-architecture/)
+- [孤岛架构](./patterns/rendering/islandsArchitecture.md) [Islands Architecture](https://www.patterns.dev/posts/islands-architecture/)
 
 3. 性能模式 Performance Patterns
 
