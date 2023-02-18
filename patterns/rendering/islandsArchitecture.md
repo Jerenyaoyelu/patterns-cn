@@ -47,11 +47,87 @@ Shopify 的工程师[Jason Miller](https://github.com/developit)关于孤岛架�
 
 ## 框架
 
-> 待翻译
+现如今，不同的框架都能支持孤岛架构。其中值得一提的是：
+
+1. Marko：[Marko](https://markojs.com/)是 eBay 的一个开源框架，用来提高服务端渲染性能。它通过组合带自动部分水合的流化渲染来支持孤岛架构。HTML 和其他静态资源只要准备好了就会马上被流式传输到客户端。自动化部分水合允许可交互组件去水合自身。水合代码只为了可交互组件才被传输，用来改变他们在浏览器中的状态。Marko 是同构的，且其编译器会根据代码是在服务端或者客户端执行来生成优化过的代码。
+
+2. Astro：[Build](https://astro.build/)是一个静态网站构建器，用来生成由其他框架如 React、Preact、Svelte、Vue 等等构建 UI 组件的轻量的静态 HTML 页面。需要客户端侧 JS 的组件带着各自的依赖一起被分别加载。因此，Astro 提供内嵌的部分水合。Astro 也能根据是否可见懒加载组件。我们也在下一部分提供了一个使用 Astro 的例子。
+
+3. Eleventy + Preact：[Markus Oberlehner](https://markus.oberlehner.net/blog/building-partially-hydrated-progressively-enhanced-static-websites-with-isomorphic-preact-and-eleventy/#lazy-hydration)阐释了 Eleventy 的使用案例：一个使用能部分水合的同构 Preact 组件的静态网站生成器。Eleventy 也支持懒水合。组件本身声明式地控制组件水合。可交互组件使用一个名为`WithHydration`的包裹以便他们能在客户端被水合。
+
+注意 Marko 和 Eleventy 虽然是早于 Jason 提供孤岛定义的时候但是依然包含了部分必需的功能来支持它。然而，Astro 则是基于孤岛的定义所创建，并且从底层支持了孤岛架构。在接下来的内容里，我们会阐述一个前面提到的用 Astro 构建的简单博客网页。
 
 ## 实现示例
 
-> 待翻译
+下面是一个用 Astro 实现的博客网页案例。SamplePost 页面导入了一个可交互组件 -- SocialButtons。这个组件被包含在 HTML 中标记过的特定的位置。
+
+### Astro page(SamplePost.astro)
+
+```javascript
+---
+// Component Imports
+import { SocialButtons } from '../../components/SocialButtons.tsx';
+---
+
+<html lang="en">
+ <head>
+   <link rel="stylesheet" href="/blog.css" />
+ </head>
+
+ <body>
+   <div class="layout">
+     <article class="content">
+       <section class="intro">
+         <h1 class="title">Post title (static)</h1>
+         <br/>
+         <p>Post sub-title (static)</p>
+       </section>
+       <section class="intro">
+           <p>This is the  post content with images that is rendered by the server.</p>
+           <img src="https://source.unsplash.com/user/c_v_r/200x200" />
+           <p>The next section contains the interactive social buttons component which includes its script.</p>
+       </section>
+       <section class="social">
+           <div>
+           <SocialButtons client:visible></SocialButtons>
+           </div>
+       </section>
+     </article>
+   </div>
+ </body>
+</html>
+```
+
+这个 SocialButtons 组件是一个包含对应 HTML 的 Preact 组件，以及包含的相应的事件处理函数。
+
+### SocialButtons component (SocialButtons.tsx)
+
+```javascript
+import { useState } from 'preact/hooks';
+
+/** a counter written in Preact */
+export function SocialButtons() {
+ const [count, setCount] = useState(0);
+ const add = () => setCount((i) => i + 1);
+ const subtract = () => setCount((i) => i - 1);
+
+ return (
+   <>
+     <div>
+       {count} people liked this post
+     </div>
+     <div align="right">
+       <img src="/like.png" width="32" height="32" onclick={add}></img>
+       <img src="/unlike.png" width="32" height="32" onclick={subtract}></img>
+     </div>
+   </>
+ );
+```
+
+这个组件是在运行时被嵌入到网页中，并且在客户端被水合，以便点击事件如要求一样有效。
+![](../../assets/islands_architecture_3.png)
+
+Astro 允许 HTML、CSS 和脚本之间完整的分割，并且鼓励基于组件的设计。这个框架易于安装和构建网页。
 
 ## 优劣势
 
