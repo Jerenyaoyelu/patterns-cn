@@ -155,4 +155,5 @@ Astro 允许 HTML、CSS 和脚本之间完整的分割，并且鼓励基于组�
 
 ### 进一步阅读
 [Islands Architecture](https://jasonformat.com/islands-architecture/)
+
 [Is 0KB of JavaScript in your future Modernizing Etsy’s codebase with React](https://changelog.com/jsparty/105)
