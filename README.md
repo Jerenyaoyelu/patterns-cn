@@ -61,7 +61,7 @@
 - 动态导入 [Dynamic Import](https://www.patterns.dev/posts/dynamic-import/)
 - 可见时导入 [Import On Visibility](https://www.patterns.dev/posts/import-on-visibility/)
 - 交互时导入 [Import On Interaction](https://www.patterns.dev/posts/import-on-interaction/)
-- 基于路由的代码分割 [Route Based Splitting](https://www.patterns.dev/posts/route-based/)
+- [基于路由的代码分割](./patterns/performance/routeBasedSplitting.md) [Route Based Splitting](https://www.patterns.dev/posts/route-based/)
 - [打包分割](./patterns/performance/bundleSplitting.md) [Bundle Splitting](https://www.patterns.dev/posts/bundle-splitting/)
 - PRPL 模式 [PRPL Pattern](https://www.patterns.dev/posts/prpl/)
 - 树摇优化 [Tree Shaking](https://www.patterns.dev/posts/tree-shaking/)
