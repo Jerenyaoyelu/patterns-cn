@@ -57,7 +57,7 @@
 3. 性能模式 Performance Patterns
 
 - [优化加载顺序](./patterns/performance/optimizeYourLoadingSequence.md) [Optimize your loading sequence](https://www.patterns.dev/posts/loading-sequence/)
-- 静态导入 [Static Import](https://www.patterns.dev/posts/static-import/)
+- [静态导入](./patterns/performance/staticImport.md) [Static Import](https://www.patterns.dev/posts/static-import/)
 - 动态导入 [Dynamic Import](https://www.patterns.dev/posts/dynamic-import/)
 - 可见时导入 [Import On Visibility](https://www.patterns.dev/posts/import-on-visibility/)
 - 交互时导入 [Import On Interaction](https://www.patterns.dev/posts/import-on-interaction/)
